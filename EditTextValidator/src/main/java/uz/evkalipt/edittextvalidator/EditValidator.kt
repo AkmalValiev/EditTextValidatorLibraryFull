@@ -214,11 +214,17 @@ object EditValidator {
                 }
             }
         }
-        return telephoneNumber.text.toString().substring(
-            0,
-            1
-        ) == "+" && telephoneNumber.text.toString().length >= 10 && telephoneNumber.text.toString().length <= 15 && telephoneNumber.text.toString()
-            .trim() != ""
+
+        var boolean = false
+
+        if (telephoneNumber.text.toString().trim() != "") {
+            boolean = telephoneNumber.text.toString().substring(
+                0,
+                1
+            ) == "+" && telephoneNumber.text.toString().length >= 10 && telephoneNumber.text.toString().length <= 15 && telephoneNumber.text.toString()
+                .trim() != ""
+        }
+        return boolean
     }
 
     fun zipCode(zipCode: EditText):Boolean{
