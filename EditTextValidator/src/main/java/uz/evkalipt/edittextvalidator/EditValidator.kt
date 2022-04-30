@@ -154,26 +154,29 @@ object EditValidator {
     fun telephoneNumber(telephoneNumber: EditText):Boolean{
         var telephoneNumber1 = false
         telephoneNumber.addTextChangedListener {
-            if (telephoneNumber.text.toString().substring(
-                    0,
-                    1
-                ) == "+" && telephoneNumber.text.toString().length >= 10 && telephoneNumber.text.toString().length <= 15 && telephoneNumber.text.toString().trim()!=""
-            ) {
-                telephoneNumber.setCompoundDrawablesWithIntrinsicBounds(
-                    0,
-                    0,
-                    R.drawable.ic_baseline_check_24,
-                    0
-                )
-                telephoneNumber1 = true
-            } else {
-                telephoneNumber.setCompoundDrawablesWithIntrinsicBounds(
-                    0,
-                    0,
-                    R.drawable.ic_baseline_info_24,
-                    0
-                )
-                telephoneNumber1 = false
+            if (telephoneNumber.text.toString().trim() != "") {
+                if (telephoneNumber.text.toString().substring(
+                        0,
+                        1
+                    ) == "+" && telephoneNumber.text.toString().length >= 10 && telephoneNumber.text.toString().length <= 15 && telephoneNumber.text.toString()
+                        .trim() != ""
+                ) {
+                    telephoneNumber.setCompoundDrawablesWithIntrinsicBounds(
+                        0,
+                        0,
+                        R.drawable.ic_baseline_check_24,
+                        0
+                    )
+                    telephoneNumber1 = true
+                } else {
+                    telephoneNumber.setCompoundDrawablesWithIntrinsicBounds(
+                        0,
+                        0,
+                        R.drawable.ic_baseline_info_24,
+                        0
+                    )
+                    telephoneNumber1 = false
+                }
             }
         }
         return telephoneNumber1
