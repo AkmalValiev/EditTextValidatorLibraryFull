@@ -1,3 +1,4 @@
 rootProject.name = "EightModulLesson(EditText validator)"
 include ':app'
 include ':EditTextValidator'
+include ':Library'
